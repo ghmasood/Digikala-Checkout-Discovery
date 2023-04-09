@@ -1,8 +1,8 @@
 import React from "react";
-import "./App.scss";
+import ProductItemCard from "./components/productItemCard";
 
 function App() {
-  return <div className="App">digi app</div>;
+  return <ProductItemCard />;
 }
 
 export default App;
