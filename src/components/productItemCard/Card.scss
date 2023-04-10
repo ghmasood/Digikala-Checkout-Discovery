@@ -1,0 +1,49 @@
+.card-item {
+  margin: 2rem auto;
+  overflow: hidden;
+  border-radius: 1rem;
+  width: 18rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  -webkit-box-shadow: 10px 10px 26px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 10px 10px 26px 1px rgba(0, 0, 0, 0.1);
+}
+.detail {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
+}
+.card-item .price-section {
+  display: flex;
+  justify-content: space-between;
+}
+
+.price {
+  font-weight: 700;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.rating {
+  display: flex;
+  gap: 0.2rem;
+  justify-content: start;
+  align-items: stretch;
+  font-weight: 300;
+}
+
+.sale {
+  text-decoration: line-through;
+  font-weight: 300;
+  color: dimgrey;
+}
+
+.discount {
+  background-color: rgb(239, 57, 78);
+  color: #fff;
+  font-weight: 800;
+  padding: 0.2rem 0.5rem;
+  border-radius: 2rem;
+}
