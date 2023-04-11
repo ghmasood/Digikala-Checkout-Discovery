@@ -1,6 +1,6 @@
 import React from "react";
 import { BsStarFill } from "react-icons/bs";
-import "./Card.scss";
+import styles from "./card.module.scss";
 
 interface IProductItemCardProps {
   id: string;
@@ -19,21 +19,27 @@ function ProductItemCard({
   discount,
 }: IProductItemCardProps) {
   return (
-    <div className={"card-item"}>
-      <img src={image} width="auto" alt={title} />
-      <div className="detail">
-        <span className="title">{title}</span>
-        <div className="rating">
+    <div className={styles.cardItem}>
+      <img
+        src={image}
+        alt={title}
+        style={{ width: "100%", aspectRatio: "2", objectFit: "cover" }}
+      />
+      <div className={styles.detail}>
+        <span className={styles.title}>{title}</span>
+        <div className={styles.rating}>
           <BsStarFill color="rgb(249, 188, 0)" /> {rating.toFixed(1)}
         </div>
-        <div className="price-section">
-          <div className="price">
-            <span className={discount > 0 ? "sale" : ""}>${price}</span>
+        <div className={styles.priceSection}>
+          <div className={styles.price}>
+            <span className={discount > 0 ? styles.sale : ""}>${price}</span>
             {discount > 0 && (
               <span>${((price * (100 - discount)) / 100).toFixed(0)}</span>
             )}
           </div>
-          {discount > 0 && <span className="discount">{discount}%</span>}
+          {discount > 0 && (
+            <span className={styles.discount}>{discount.toFixed(0)}%</span>
+          )}
         </div>
       </div>
     </div>
