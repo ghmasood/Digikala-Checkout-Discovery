@@ -1,10 +1,10 @@
 import React from "react";
-import ProductList from "./components/productList";
+import DetailPage from "./components/detailPage";
 
 function App() {
   return (
     <>
-      <ProductList />
+      <DetailPage />
     </>
   );
 }
