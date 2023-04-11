@@ -1,40 +1,29 @@
 import React, { useEffect, useState } from "react";
+
 import ProductItemCard from "../productItemCard";
+
 import styles from "./list.module.scss";
 
+import { productFetcher } from "./services";
+
+import { productsType } from "../../types";
 interface IProductListProps {
   customClass?: string;
 }
-interface productsType {
-  products: {
-    id: number;
-    title: string;
-    description: string;
-    price: number;
-    discountPercentage: number;
-    rating: number;
-    stock: number;
-    brand: string;
-    category: string;
-    thumbnail: string;
-    images: string[];
-  }[];
-  total: number;
-  skip: number;
-  limit: number;
-}
+
 function ProductList({ customClass = "" }: IProductListProps) {
-  const [product, setProduct] = useState<productsType>();
+  //STATES
+  const [products, setProducts] = useState<productsType>();
+  //LIFE CYCLE HOOK
   useEffect(() => {
-    fetch("https://dummyjson.com/products/")
-      .then((res) => res.json())
-      .then((json) => setProduct(json));
+    productFetcher(setProducts);
   }, []);
 
   return (
     <div className={styles.procuctList}>
-      {product?.products.map((item) => (
+      {products?.products.map((item) => (
         <ProductItemCard
+          key={item.id + ""}
           id={item.id + ""}
           title={item.title}
           image={item.thumbnail}

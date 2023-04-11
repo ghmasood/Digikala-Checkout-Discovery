@@ -1,6 +1,8 @@
 import React from "react";
-import { BsStarFill } from "react-icons/bs";
+
 import styles from "./card.module.scss";
+
+import { BsStarFill } from "react-icons/bs";
 
 interface IProductItemCardProps {
   id: string;
@@ -11,7 +13,6 @@ interface IProductItemCardProps {
   discount: number;
 }
 function ProductItemCard({
-  id,
   title,
   image,
   rating,
