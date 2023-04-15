@@ -7,6 +7,7 @@ import styles from "./list.module.scss";
 import { productFetcher } from "./services";
 
 import { productsType } from "../../types";
+
 interface IProductListProps {
   customClass?: string;
 }
@@ -23,7 +24,7 @@ function ProductList({ customClass = "" }: IProductListProps) {
     <div className={styles.procuctList}>
       {products?.products.map((item) => (
         <ProductItemCard
-          key={item.id + ""}
+          key={item.id + item.title}
           id={item.id + ""}
           title={item.title}
           image={item.thumbnail}

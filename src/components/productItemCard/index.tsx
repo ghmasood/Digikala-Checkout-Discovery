@@ -2,7 +2,7 @@ import React from "react";
 
 import styles from "./card.module.scss";
 
-import { BsStarFill } from "react-icons/bs";
+import { BsCartPlusFill, BsStarFill } from "react-icons/bs";
 
 interface IProductItemCardProps {
   id: string;
@@ -20,30 +20,41 @@ function ProductItemCard({
   discount,
 }: IProductItemCardProps) {
   return (
-    <div className={styles.cardItem}>
-      <img
-        src={image}
-        alt={title}
-        style={{ width: "100%", aspectRatio: "2", objectFit: "cover" }}
-      />
-      <div className={styles.detail}>
-        <span className={styles.title}>{title}</span>
-        <div className={styles.rating}>
-          <BsStarFill color="rgb(249, 188, 0)" /> {rating.toFixed(1)}
-        </div>
-        <div className={styles.priceSection}>
-          <div className={styles.price}>
-            <span className={discount > 0 ? styles.sale : ""}>${price}</span>
+    <>
+      <div className={styles.cardItem}>
+        <img
+          src={image}
+          alt={title}
+          style={{ width: "100%", aspectRatio: "2", objectFit: "cover" }}
+        />
+        <div className={styles.detail}>
+          <span className={styles.title}>{title}</span>
+          <div className={styles.rating}>
+            <BsStarFill color="rgb(249, 188, 0)" /> {rating.toFixed(1)}
+          </div>
+          <div className={styles.priceSection}>
+            <div className={styles.price}>
+              <span className={discount > 0 ? styles.sale : ""}>${price}</span>
+              {discount > 0 && (
+                <span>${((price * (100 - discount)) / 100).toFixed(0)}</span>
+              )}
+            </div>
             {discount > 0 && (
-              <span>${((price * (100 - discount)) / 100).toFixed(0)}</span>
+              <span className={styles.discount}>{discount.toFixed(0)}%</span>
             )}
           </div>
-          {discount > 0 && (
-            <span className={styles.discount}>{discount.toFixed(0)}%</span>
-          )}
         </div>
+        <button
+          className={styles.addBtn}
+          onClick={() => {
+            console.log({ title });
+          }}
+        >
+          <BsCartPlusFill />{" "}
+          <span style={{ fontWeight: "500" }}>Add to card!</span>
+        </button>
       </div>
-    </div>
+    </>
   );
 }
 
