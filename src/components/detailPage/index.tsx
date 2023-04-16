@@ -19,7 +19,15 @@ function DetailPage({ customClass = "" }: IDetailPageProps) {
   return (
     <div className={`${styles.root} ${customClass}`}>
       <img src={productDetail?.images[0]} alt={productDetail?.title} />
-      <div>{productDetail?.title}</div>
+      <div>
+        <p>{productDetail?.title}</p>
+        <p>{productDetail?.description}</p>
+        <p>Brand: {productDetail?.brand}</p>
+        <p>Rating{productDetail?.rating}</p>
+        <p>Stock: {productDetail?.stock}</p>
+        <p>${productDetail?.price}</p>
+        <button>add to card!</button>
+      </div>
     </div>
   );
 }
