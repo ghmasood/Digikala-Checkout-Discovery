@@ -1,28 +1,22 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 
 import ProductItemCard from "../productItemCard";
 
 import styles from "./list.module.scss";
 
-import { productFetcher } from "./services";
 
-import { productsType } from "../../types";
+import { useGetAllProductsQuery } from "../../store";
 
 interface IProductListProps {
   customClass?: string;
 }
 
 function ProductList({ customClass = "" }: IProductListProps) {
-  //STATES
-  const [products, setProducts] = useState<productsType>();
-  //LIFE CYCLE HOOK
-  useEffect(() => {
-    productFetcher(setProducts);
-  }, []);
+  const { isFetching, isLoading, error, data } = useGetAllProductsQuery(null);
 
   return (
     <div className={styles.procuctList}>
-      {products?.products.map((item) => (
+      {data?.products.map((item) => (
         <ProductItemCard
           key={item.id + item.title}
           id={item.id + ""}
