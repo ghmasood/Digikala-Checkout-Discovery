@@ -18,3 +18,8 @@ export interface productType {
   thumbnail: string;
   images: string[];
 }
+
+export interface cardType {
+  pids: number[];
+  total: number;
+}
