@@ -24,7 +24,7 @@ function ProductItemCard({
   discount,
 }: IProductItemCardProps) {
   const reduxDispatch = useAppDispatch();
-
+  const FinalPrice = ((price * (100 - discount)) / 100).toFixed(0);
   return (
     <>
       <div className={styles.cardItem}>
@@ -44,9 +44,7 @@ function ProductItemCard({
                 <span className={discount > 0 ? styles.sale : ""}>
                   ${price}
                 </span>
-                {discount > 0 && (
-                  <span>${((price * (100 - discount)) / 100).toFixed(0)}</span>
-                )}
+                {discount > 0 && <span>${FinalPrice}</span>}
               </div>
               {discount > 0 && (
                 <span className={styles.discount}>{discount.toFixed(0)}%</span>
