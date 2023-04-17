@@ -4,8 +4,8 @@ import ProductItemCard from "../productItemCard";
 
 import styles from "./list.module.scss";
 
-
 import { useGetAllProductsQuery } from "../../store";
+import { FetchBaseQueryError } from "@reduxjs/toolkit/dist/query/fetchBaseQuery";
 
 interface IProductListProps {
   customClass?: string;
@@ -13,20 +13,27 @@ interface IProductListProps {
 
 function ProductList({ customClass = "" }: IProductListProps) {
   const { isFetching, isLoading, error, data } = useGetAllProductsQuery(null);
+  const err = error as FetchBaseQueryError;
 
   return (
     <div className={styles.procuctList}>
-      {data?.products.map((item) => (
-        <ProductItemCard
-          key={item.id + item.title}
-          id={item.id + ""}
-          title={item.title}
-          image={item.thumbnail}
-          rating={item.rating}
-          price={item.price}
-          discount={item.discountPercentage}
-        />
-      ))}
+      {isLoading || isFetching ? (
+        <div>loading...</div>
+      ) : err ? (
+        <div>{err.status}</div>
+      ) : (
+        data?.products.map((item) => (
+          <ProductItemCard
+            key={item.id + item.title}
+            id={item.id + ""}
+            title={item.title}
+            image={item.thumbnail}
+            rating={item.rating}
+            price={item.price}
+            discount={item.discountPercentage}
+          />
+        ))
+      )}
     </div>
   );
 }
