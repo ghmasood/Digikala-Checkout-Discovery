@@ -6,48 +6,45 @@ import { BsCartPlusFill, BsStarFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../store/hook";
 import { addToCard } from "../../store/cart";
+import { productType } from "../../types";
 
 interface IProductItemCardProps {
-  id: string;
-  title: string;
-  image: string;
-  rating: number;
-  price: number;
-  discount: number;
+  cardData: productType;
 }
-function ProductItemCard({
-  id,
-  title,
-  image,
-  rating,
-  price,
-  discount,
-}: IProductItemCardProps) {
+function ProductItemCard({ cardData }: IProductItemCardProps) {
   const reduxDispatch = useAppDispatch();
-  const FinalPrice = ((price * (100 - discount)) / 100).toFixed(0);
+  const FinalPrice = (
+    (cardData.price * (100 - cardData.discountPercentage)) /
+    100
+  ).toFixed(0);
   return (
     <>
       <div className={styles.cardItem}>
-        <Link to={`/product/?pid=${id}`}>
+        <Link to={`/product/?pid=${cardData.id}`}>
           <img
-            src={image}
-            alt={title}
+            src={cardData.thumbnail}
+            alt={cardData.title}
             style={{ width: "100%", aspectRatio: "2", objectFit: "cover" }}
           />
           <div className={styles.detail}>
-            <span className={styles.title}>{title}</span>
+            <span className={styles.title}>{cardData.title}</span>
             <div className={styles.rating}>
-              <BsStarFill color="rgb(249, 188, 0)" /> {rating.toFixed(1)}
+              <BsStarFill color="rgb(249, 188, 0)" />{" "}
+              {cardData.rating.toFixed(1)}
             </div>
             <div className={styles.priceSection}>
               <div className={styles.price}>
-                <span className={discount > 0 ? styles.sale : ""}>
-                  ${price}
+                <span
+                  className={cardData.discountPercentage > 0 ? styles.sale : ""}
+                >
+                  ${cardData.price}
                 </span>
-                {discount > 0 && <span>${FinalPrice}</span>}
+                {cardData.discountPercentage > 0 && <span>${FinalPrice}</span>}
               </div>
-              {discount > 0 && (
-                <span className={styles.discount}>{discount.toFixed(0)}%</span>
+              {cardData.discountPercentage > 0 && (
+                <span className={styles.discount}>
+                  {cardData.discountPercentage.toFixed(0)}%
+                </span>
               )}
             </div>
           </div>
@@ -55,7 +52,7 @@ function ProductItemCard({
         <button
           className={styles.addBtn}
           onClick={() => {
-            reduxDispatch(addToCard(+id));
+            reduxDispatch(addToCard(cardData));
           }}
         >
           <BsCartPlusFill />{" "}

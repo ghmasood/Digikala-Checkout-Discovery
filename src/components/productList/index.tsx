@@ -23,15 +23,7 @@ function ProductList({ customClass = "" }: IProductListProps) {
         <div>{err.status}</div>
       ) : (
         data?.products.map((item) => (
-          <ProductItemCard
-            key={item.id + item.title}
-            id={item.id + ""}
-            title={item.title}
-            image={item.thumbnail}
-            rating={item.rating}
-            price={item.price}
-            discount={item.discountPercentage}
-          />
+          <ProductItemCard key={item.id + item.title} cardData={item} />
         ))
       )}
     </div>

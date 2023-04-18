@@ -20,6 +20,6 @@ export interface productType {
 }
 
 export interface cardType {
-  pids: number[];
+  cardProducts: productType[];
   total: number;
 }

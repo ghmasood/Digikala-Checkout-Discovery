@@ -3,7 +3,7 @@ import { cardType } from "../../types";
 import reducers from "./reducers";
 
 export const initialState: cardType = {
-  pids: [],
+  cardProducts: [],
   total: 0,
 };
 
