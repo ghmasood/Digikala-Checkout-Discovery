@@ -6,11 +6,32 @@ function CardPage() {
   const cardItems = useAppSelector((store) => store.card);
 
   return (
-    <div>
+    <>
       {cardItems.cardProducts.map((item) => (
-        <div>{item.title}</div>
+        <div style={{ display: "flex ", justifyContent: "center" }}>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              gap: "2rem",
+              width: "25%",
+            }}
+          >
+            <span style={{}}>{item.title}</span>
+          </div>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              gap: "2rem",
+              width: "25%",
+            }}
+          >
+            <span style={{}}>${item.price}</span>
+          </div>
+        </div>
       ))}
-    </div>
+    </>
   );
 }
 
