@@ -13,7 +13,7 @@ function NavBar() {
       }}
     >
       <Link to={""}>HOME</Link>
-      <Link to={"/card"}>CARD</Link>
+      <Link to={"/cart"}>CART</Link>
     </div>
   );
 }

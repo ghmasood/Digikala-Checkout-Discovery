@@ -1,7 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { setupListeners } from "@reduxjs/toolkit/dist/query";
 import { productsApi } from "./API/productApi";
-import { CardSlice } from "./cart";
+import { CartSlice } from "./cart";
 
 import { combineReducers } from "@reduxjs/toolkit";
 import storage from "redux-persist/lib/storage";
@@ -18,12 +18,12 @@ import {
 const persistConfig = {
   key: "root",
   storage: storage,
-  blacklist: ["CardSlice"],
+  blacklist: ["CartSlice"],
 };
 
 export const rootReducers = combineReducers({
   [productsApi.reducerPath]: productsApi.reducer,
-  card: CardSlice.reducer,
+  cart: CartSlice.reducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducers);

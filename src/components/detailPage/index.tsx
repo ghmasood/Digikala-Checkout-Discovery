@@ -24,7 +24,7 @@ function DetailPage({ customClass = "" }: IDetailPageProps) {
         <p>Rating{data?.rating}</p>
         <p>Stock: {data?.stock}</p>
         <p>${data?.price}</p>
-        <button>add to card!</button>
+        <button>add to cart!</button>
       </div>
     </div>
   );

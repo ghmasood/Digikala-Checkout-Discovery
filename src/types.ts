@@ -19,7 +19,7 @@ export interface productType {
   images: string[];
 }
 
-export interface cardType {
-  cardProducts: productType[];
+export interface cartType {
+  cartProducts: productType[];
   total: number;
 }

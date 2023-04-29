@@ -1,18 +1,18 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { cardType } from "../../types";
+import { cartType } from "../../types";
 import reducers from "./reducers";
 
-export const initialState: cardType = {
-  cardProducts: [],
+export const initialState: cartType = {
+  cartProducts: [],
   total: 0,
 };
 
-export const CardSlice = createSlice({
-  name: "card",
+export const CartSlice = createSlice({
+  name: "cart",
   initialState,
   reducers: { ...reducers },
 });
 
-export const { addToCard, removeFromCard } = CardSlice.actions;
+export const { addToCart, removeFromCart } = CartSlice.actions;
 
-export default CardSlice.reducer;
+export default CartSlice.reducer;

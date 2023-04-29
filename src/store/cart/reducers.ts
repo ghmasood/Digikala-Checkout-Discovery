@@ -1,17 +1,17 @@
 import { PayloadAction } from "@reduxjs/toolkit";
-import { cardType, productType } from "../../types";
+import { cartType, productType } from "../../types";
 
 const reducers = {
-  addToCard: (state: cardType, action: PayloadAction<productType>) => {
-    state.cardProducts.push(action.payload);
+  addToCart: (state: cartType, action: PayloadAction<productType>) => {
+    state.cartProducts.push(action.payload);
     state.total++;
     return state;
   },
-  removeFromCard: (state: cardType, action: PayloadAction<number>) => {
-    const index = state.cardProducts.findIndex(
+  removeFromCart: (state: cartType, action: PayloadAction<number>) => {
+    const index = state.cartProducts.findIndex(
       (item) => item.id === action.payload
     );
-    state.cardProducts.splice(index, index);
+    state.cartProducts.splice(index, index);
     return state;
   },
 };

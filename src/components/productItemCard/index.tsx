@@ -5,7 +5,7 @@ import styles from "./card.module.scss";
 import { BsCartPlusFill, BsStarFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../store/hook";
-import { addToCard } from "../../store/cart";
+import { addToCart } from "../../store/cart";
 import { productType } from "../../types";
 
 interface IProductItemCardProps {
@@ -52,11 +52,11 @@ function ProductItemCard({ cardData }: IProductItemCardProps) {
         <button
           className={styles.addBtn}
           onClick={() => {
-            reduxDispatch(addToCard(cardData));
+            reduxDispatch(addToCart(cardData));
           }}
         >
           <BsCartPlusFill />{" "}
-          <span style={{ fontWeight: "500" }}>Add to card!</span>
+          <span style={{ fontWeight: "500" }}>Add to cart!</span>
         </button>
       </div>
     </>

@@ -2,12 +2,12 @@ import React from "react";
 import { useGetSingleProductQuery } from "../../store";
 import { useAppDispatch, useAppSelector } from "../../store/hook";
 
-function CardPage() {
-  const cardItems = useAppSelector((store) => store.card);
+function CartPage() {
+  const cardItems = useAppSelector((store) => store.cart);
 
   return (
     <>
-      {cardItems.cardProducts.map((item) => (
+      {cardItems.cartProducts.map((item) => (
         <div style={{ display: "flex ", justifyContent: "center" }}>
           <div
             style={{
@@ -35,4 +35,4 @@ function CardPage() {
   );
 }
 
-export default CardPage;
+export default CartPage;
