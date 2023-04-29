@@ -3,6 +3,8 @@ import { useLocation } from "react-router-dom";
 import { useGetSingleProductQuery } from "../../store";
 import { productType } from "../../types";
 import styles from "./detailPage.module.scss";
+import { useAppDispatch } from "../../store/hook";
+import { addToCart } from "../../store/cart";
 
 interface IDetailPageProps {
   customClass?: string;
@@ -14,6 +16,8 @@ function DetailPage({ customClass = "" }: IDetailPageProps) {
   const { isFetching, isLoading, error, data } = useGetSingleProductQuery(
     Number(pid)
   );
+  const reduxDispatch = useAppDispatch();
+
   return (
     <div className={`${styles.root} ${customClass}`}>
       <img src={data?.images[0]} alt={data?.title} />
@@ -24,7 +28,13 @@ function DetailPage({ customClass = "" }: IDetailPageProps) {
         <p>Rating{data?.rating}</p>
         <p>Stock: {data?.stock}</p>
         <p>${data?.price}</p>
-        <button>add to cart!</button>
+        <button
+          onClick={() => {
+            data && reduxDispatch(addToCart(data));
+          }}
+        >
+          add to cart!
+        </button>
       </div>
     </div>
   );
