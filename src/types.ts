@@ -5,6 +5,10 @@ export interface productsType {
   limit: number;
 }
 
+export interface productReqType {
+  limit: number;
+  skip: number;
+}
 export interface productType {
   id: number;
   title: string;

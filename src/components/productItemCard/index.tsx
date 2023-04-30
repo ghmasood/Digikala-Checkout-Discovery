@@ -24,7 +24,7 @@ function ProductItemCard({ cardData }: IProductItemCardProps) {
           <img
             src={cardData.thumbnail}
             alt={cardData.title}
-            style={{ width: "100%", aspectRatio: "2", objectFit: "cover" }}
+            style={{ width: "100%", aspectRatio: "1.6", objectFit: "cover" }}
           />
           <div className={styles.detail}>
             <span className={styles.title}>{cardData.title}</span>
