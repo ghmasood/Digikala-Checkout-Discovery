@@ -24,6 +24,11 @@ export interface productType {
 }
 
 export interface cartType {
-  cartProducts: productType[];
+  cartProducts: IFilterdItem[];
   total: number;
+}
+
+export interface IFilterdItem extends productType {
+  qty: number;
+  finalPrice: number;
 }

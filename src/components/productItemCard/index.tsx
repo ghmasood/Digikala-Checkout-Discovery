@@ -4,7 +4,7 @@ import styles from "./card.module.scss";
 
 import { BsCartPlusFill, BsStarFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
-import { useAppDispatch, useAppSelector } from "../../store/hook";
+import { useAppDispatch } from "../../store/hook";
 import { addToCart } from "../../store/cart";
 import { productType } from "../../types";
 
@@ -20,7 +20,7 @@ function ProductItemCard({ cardData }: IProductItemCardProps) {
   return (
     <>
       <div className={styles.cardItem}>
-        <span className={styles.category}>{cardData.category}</span>
+        {/* <span className={styles.category}>{cardData.category}</span> */}
         <Link to={`/product/?pid=${cardData.id}`}>
           <img
             src={cardData.thumbnail}

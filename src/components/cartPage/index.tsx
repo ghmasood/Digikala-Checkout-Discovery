@@ -1,42 +1,25 @@
 import React from "react";
-import { useGetSingleProductQuery } from "../../store";
 import { useAppDispatch, useAppSelector } from "../../store/hook";
-import { productType } from "../../types";
+import { IFilterdItem, productType } from "../../types";
+import { removeFromCart } from "../../store/cart";
 
-interface IFilterdItem extends productType {
-  qty: number;
-  finalPrice: number;
-}
 function CartPage() {
   const cardItems = useAppSelector((store) => store.cart);
+  const reduxDispatch = useAppDispatch();
 
-  const filteredItems: IFilterdItem[] = [];
-
-  for (const item of cardItems.cartProducts) {
-    const isDuplicate = filteredItems.find((obj) => obj.id === item.id);
-    if (!isDuplicate) {
-      filteredItems.push({
-        ...item,
-        qty: 1,
-        finalPrice: (item.price * (100 - item.discountPercentage)) / 100,
-      });
-    } else {
-      const foundItem = filteredItems.find((i) => i.id === isDuplicate.id);
-      foundItem && foundItem.qty++;
-    }
-  }
-
-  const totalPrice = filteredItems.reduce(
+  const totalPrice = cardItems.cartProducts.reduce(
     (accumulator, currValue) =>
       accumulator + currValue.finalPrice * currValue.qty,
     0
   );
+  console.log(cardItems.cartProducts);
   return (
     <>
-      {filteredItems.map((item) => (
+      {cardItems.cartProducts.map((item) => (
         <div
           style={{ display: "flex ", justifyContent: "center" }}
           key={item.description}
+          onClick={() => {}}
         >
           <div
             style={{
@@ -56,7 +39,7 @@ function CartPage() {
               width: "25%",
             }}
           >
-            <span style={{}}>${item.finalPrice.toFixed(2)}</span>
+            <span style={{}}>${item?.finalPrice?.toFixed(2)}</span>
           </div>
           <div
             style={{
