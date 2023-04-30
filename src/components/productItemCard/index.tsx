@@ -20,6 +20,7 @@ function ProductItemCard({ cardData }: IProductItemCardProps) {
   return (
     <>
       <div className={styles.cardItem}>
+        <span className={styles.category}>{cardData.category}</span>
         <Link to={`/product/?pid=${cardData.id}`}>
           <img
             src={cardData.thumbnail}
