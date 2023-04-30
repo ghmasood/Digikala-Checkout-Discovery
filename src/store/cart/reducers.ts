@@ -19,7 +19,20 @@ const reducers = {
     }
     state.total++;
   },
-  removeFromCart: (state: cartType, action: PayloadAction<number>) => {},
+  minusFromCart: (state: cartType, action: PayloadAction<number>) => {
+    const index = state.cartProducts.findIndex(
+      (item) => item.id === action.payload
+    );
+    if (state.cartProducts[index].qty > 1) {
+      state.total--;
+      state.cartProducts[index].qty--;
+    } else {
+      return {
+        total: state.total - 1,
+        cartProducts: state.cartProducts.filter((i) => i.id !== action.payload),
+      };
+    }
+  },
 };
 
 export default reducers;

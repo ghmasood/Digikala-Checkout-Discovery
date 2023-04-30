@@ -1,7 +1,6 @@
 import React from "react";
 import { useAppDispatch, useAppSelector } from "../../store/hook";
-import { IFilterdItem, productType } from "../../types";
-import { removeFromCart } from "../../store/cart";
+import { minusFromCart } from "../../store/cart";
 
 function CartPage() {
   const cardItems = useAppSelector((store) => store.cart);
@@ -12,14 +11,16 @@ function CartPage() {
       accumulator + currValue.finalPrice * currValue.qty,
     0
   );
-  console.log(cardItems.cartProducts);
+  console.log(cardItems);
   return (
     <>
       {cardItems.cartProducts.map((item) => (
         <div
           style={{ display: "flex ", justifyContent: "center" }}
           key={item.description}
-          onClick={() => {}}
+          onClick={() => {
+            reduxDispatch(minusFromCart(item.id));
+          }}
         >
           <div
             style={{
