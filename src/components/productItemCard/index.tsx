@@ -20,16 +20,18 @@ function ProductItemCard({ cardData }: IProductItemCardProps) {
   ).toFixed(0);
   return (
     <div className={styles.productCard}>
-      <div className={styles.productImage}>
+      <Link to={`/product/?pid=${cardData.id}`} className={styles.productImage}>
         <img
           src={cardData.thumbnail}
           height="160px"
           width="200px"
           style={{ borderRadius: "0.5rem", objectFit: "contain" }}
         />
-      </div>
+      </Link>
       <div className={styles.content}>
-        <span className={styles.title}>{cardData.title}</span>
+        <Link to={`/product/?pid=${cardData.id}`} className={styles.title}>
+          {cardData.title}
+        </Link>
         <span className={styles.brand}>{cardData.brand}</span>
         <div className={styles.action}>
           <div
