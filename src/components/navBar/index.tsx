@@ -1,9 +1,6 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
-import { AiFillHome } from "react-icons/ai";
-import { BsCartFill } from "react-icons/bs";
 import styles from "./navbar.module.scss";
-import { useAppSelector } from "../../store/hook";
 import { icons } from "components/icons";
 
 function NavBar() {

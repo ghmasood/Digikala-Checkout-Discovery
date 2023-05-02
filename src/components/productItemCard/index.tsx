@@ -2,7 +2,6 @@ import React from "react";
 
 import styles from "./card.module.scss";
 
-import { BsCartPlusFill, BsStarFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import { useAppDispatch } from "store/hook";
 import { productType } from "types";
@@ -22,6 +21,7 @@ function ProductItemCard({ cardData }: IProductItemCardProps) {
     <div className={styles.productCard}>
       <Link to={`/product/?pid=${cardData.id}`} className={styles.productImage}>
         <img
+          alt={cardData.title}
           src={cardData.thumbnail}
           height="160px"
           width="200px"
