@@ -1,7 +1,10 @@
+.contentFrame {
+  padding: 1.5rem;
+  margin-left: 3.75rem;
+}
+
 .procuctList {
   display: flex;
   flex-wrap: wrap;
-  gap: 2rem;
   justify-content: space-around;
-  padding: 0.5rem;
 }

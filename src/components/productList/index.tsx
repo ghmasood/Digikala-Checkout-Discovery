@@ -21,7 +21,7 @@ function ProductList({ customClass = "" }: IProductListProps) {
   });
   const err = error as FetchBaseQueryError;
   return (
-    <>
+    <div className={styles.contentFrame}>
       <div className={styles.procuctList}>
         {isLoading || isFetching ? (
           <div>loading...</div>
@@ -41,7 +41,7 @@ function ProductList({ customClass = "" }: IProductListProps) {
           onChange={(p) => setPage(p)}
         />
       )}
-    </>
+    </div>
   );
 }
 

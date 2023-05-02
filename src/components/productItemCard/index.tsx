@@ -6,7 +6,7 @@ import { BsCartPlusFill, BsStarFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import { useAppDispatch } from "store/hook";
 import { productType } from "types";
-import { AddtoCart } from "components/icons";
+import { icons } from "components/icons";
 import { addToCart } from "store/cart";
 
 interface IProductItemCardProps {
@@ -25,7 +25,7 @@ function ProductItemCard({ cardData }: IProductItemCardProps) {
           src={cardData.thumbnail}
           height="160px"
           width="200px"
-          style={{ borderRadius: "0.5rem" }}
+          style={{ borderRadius: "0.5rem", objectFit: "contain" }}
         />
       </div>
       <div className={styles.content}>
@@ -46,7 +46,7 @@ function ProductItemCard({ cardData }: IProductItemCardProps) {
             className={styles.btn}
             onClick={() => reduxDispatch(addToCart(cardData))}
           >
-            <AddtoCart />
+            {icons.AddtoCart()}
             {/* <span>Add To cart</span> */}
           </button>
         </div>
