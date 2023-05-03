@@ -1,6 +1,7 @@
 import React from "react";
-import { BiChevronLeftCircle, BiChevronRightCircle } from "react-icons/bi";
+
 import styles from "./pagination.module.scss";
+import { icons } from "components/icons";
 interface IPaginationProps {
   total: number;
   limit: number;
@@ -14,17 +15,15 @@ function Pagination({ limit, skip, total, onChange }: IPaginationProps) {
   return (
     <div className={styles.pagination}>
       <ul className={styles.ulstyle}>
-        <BiChevronLeftCircle
-          size={"1.85rem"}
-          color="#ef394e"
-          cursor={"pointer"}
+        <li
           onClick={() => {
             if (skip > 1) {
               onChange(skip - 1);
             }
           }}
-        />
-
+        >
+          {icons.chevronBack(`${styles.iconSvg}`, `${styles.iconPath} `)}
+        </li>
         {pageNumbers.map((n) => (
           <li
             key={n}
@@ -34,15 +33,16 @@ function Pagination({ limit, skip, total, onChange }: IPaginationProps) {
             {n + 1}
           </li>
         ))}
-
-        <BiChevronRightCircle
-          size={"1.85rem"}
-          color="#ef394e"
-          cursor={"pointer"}
+        <li
           onClick={() => {
             if (skip < totalPage - 1) onChange(skip + 1);
           }}
-        />
+        >
+          {icons.chevronBack(
+            `${styles.rotate} ${styles.iconSvg}`,
+            styles.iconPath
+          )}
+        </li>
       </ul>
     </div>
   );

@@ -1,16 +1,20 @@
+@import "assets/styles/helpers/variabels";
+
 .pagination {
-  //   margin: 0 auto !important;
+  margin-top: 1.5rem;
 }
 .ulstyle {
   display: flex;
   gap: 1.3rem;
   list-style-type: none;
   justify-content: center;
+  justify-items: center;
   align-items: center;
+  align-content: center;
 }
 
 .listyle {
-  color: rgb(239, 57, 78);
+  color: $dark;
   -webkit-user-select: none; /* Safari */
   -ms-user-select: none; /* IE 10 and IE 11 */
   user-select: none; /* Standard syntax */
@@ -24,12 +28,31 @@
   border-radius: 999rem;
   cursor: pointer;
   &:hover {
-    background-color: rgb(239, 57, 78);
+    background-color: $placeholder;
     color: #fff;
   }
 }
 
 .active {
-  background-color: rgb(239, 57, 78);
+  background-color: $dark;
   color: #fff;
+}
+
+.iconSvg {
+  cursor: pointer;
+  border-radius: 100%;
+  padding: 0.1rem;
+  &:hover {
+    background-color: $tertiary;
+    &:first-child {
+      stroke: #fff !important;
+    }
+  }
+}
+.iconPath {
+  stroke: $dark;
+}
+
+.rotate {
+  transform: rotate(180deg);
 }

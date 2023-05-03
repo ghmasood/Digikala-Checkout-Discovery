@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useLocation } from "react-router-dom";
 import { useGetSingleProductQuery } from "../../store";
-import { productType } from "../../types";
 import styles from "./detailPage.module.scss";
 import { useAppDispatch } from "../../store/hook";
 import { addToCart } from "../../store/cart";
