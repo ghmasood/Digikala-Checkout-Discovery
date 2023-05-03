@@ -5,12 +5,10 @@
 }
 .ulstyle {
   display: flex;
-  gap: 1.3rem;
+  gap: 1.1rem;
   list-style-type: none;
-  justify-content: center;
-  justify-items: center;
   align-items: center;
-  align-content: center;
+  justify-content: center;
 }
 
 .listyle {
@@ -42,9 +40,10 @@
   cursor: pointer;
   border-radius: 100%;
   padding: 0.1rem;
+  vertical-align: middle;
   &:hover {
     background-color: $tertiary;
-    &:first-child {
+    & path {
       stroke: #fff !important;
     }
   }

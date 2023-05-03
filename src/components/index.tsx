@@ -12,7 +12,7 @@ function ShopApp() {
       <NavBar />
       <Routes>
         <Route path="/" element={<ProductList />} />
-        <Route path="/product" element={<DetailPage />} />
+        <Route path="/product/:id" element={<DetailPage />} />
         <Route path="/cart" element={<CartPage />} />
       </Routes>
     </div>
