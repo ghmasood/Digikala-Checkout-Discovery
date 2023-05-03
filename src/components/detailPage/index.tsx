@@ -41,11 +41,13 @@ function DetailPage({ customClass = "" }: IDetailPageProps) {
         <div className={styles.imageArea}>
           <div className={styles.gallery}>
             {data?.images.map((pic, index) => (
-              <img
-                src={pic}
-                className={styles.galleryContiner}
-                onClick={() => setPicNO(index)}
-              />
+              <div>
+                <img
+                  src={pic}
+                  className={styles.galleryContiner}
+                  onClick={() => setPicNO(index)}
+                />
+              </div>
             ))}
           </div>
           <img src={data?.images[picNO]} className={styles.mainImage} />
@@ -84,7 +86,10 @@ function DetailPage({ customClass = "" }: IDetailPageProps) {
           </div>
           <span className={styles.desc}>{data?.description}</span>
           <div className={styles.cta}>
-            <button className={styles.btn}>
+            <button
+              className={styles.btn}
+              onClick={() => data && reduxDispatch(addToCart(data))}
+            >
               {icons.AddtoCart()} Add to Bag
             </button>
           </div>
