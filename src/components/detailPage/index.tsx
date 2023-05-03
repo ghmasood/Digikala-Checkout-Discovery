@@ -25,12 +25,13 @@ function DetailPage({ customClass = "" }: IDetailPageProps) {
 
   const [picNO, setPicNO] = useState(0);
 
-  const finalRate =
-    (Math.round(data?.rating ?? 0) + Math.round(data?.rating ?? 0) - 1) / 2;
+  const finalRate = Math.round((data?.rating ?? 0) * 2) / 2;
+  const fullStar = Math.floor(finalRate);
+  const halfStar = fullStar === finalRate ? 0 : 1;
+  const emptyStar = 5 - fullStar - halfStar;
 
   const reduxDispatch = useAppDispatch();
 
-  console.log(data?.rating, finalRate);
   return (
     <div className={`${styles.contentFrame} ${customClass}`}>
       <nav onClick={() => navigate(-1)} className={styles.nav}>
@@ -55,12 +56,38 @@ function DetailPage({ customClass = "" }: IDetailPageProps) {
             <span className={styles.category}>{data?.category}</span>
           </div>
           <div className={styles.special}>
-            <span></span>
-            <span>{data?.rating}/5</span>
+            <div className={styles.stars}>
+              {[...new Array(fullStar)].map((item, index) =>
+                icons.starFull("", `${styles.starStroke} ${styles.starFill}`)
+              )}
+              {[...new Array(halfStar)].map((item, index) =>
+                icons.starHalf(
+                  `${styles.starStroke}`,
+                  `${styles.starFill} ${styles.starStroke}`
+                )
+              )}
+              {[...new Array(emptyStar)].map((item, index) =>
+                icons.starEmpty("", `${styles.starStroke} `)
+              )}
+            </div>
+            <span>{finalRate}/5</span>
           </div>
-          <span></span>
-          <div></div>
-          <div></div>
+          <div className={styles.price}>
+            <span>${data?.price}</span>
+            <span>
+              $
+              {(
+                ((data?.price ?? 0) * (100 - (data?.discountPercentage ?? 0))) /
+                100
+              ).toFixed(2)}
+            </span>
+          </div>
+          <span className={styles.desc}>{data?.description}</span>
+          <div className={styles.cta}>
+            <button className={styles.btn}>
+              {icons.AddtoCart()} Add to Bag
+            </button>
+          </div>
         </div>
       </div>
       <div className="bottom"></div>
