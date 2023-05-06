@@ -15,15 +15,17 @@ function Pagination({ limit, skip, total, onChange }: IPaginationProps) {
   return (
     <div className={styles.pagination}>
       <ul className={styles.ulstyle}>
-        <li
-          onClick={() => {
-            if (skip > 1) {
-              onChange(skip - 1);
-            }
-          }}
-        >
-          {icons.chevronBack(`${styles.iconSvg}`, `${styles.iconPath} `)}
-        </li>
+        {skip > 0 && (
+          <li
+            onClick={() => {
+              if (skip > 0) {
+                onChange(skip - 1);
+              }
+            }}
+          >
+            {icons.chevronBack(`${styles.iconSvg}`, `${styles.iconPath} `)}
+          </li>
+        )}
         {pageNumbers.map((n) => (
           <li
             key={n}
@@ -33,16 +35,18 @@ function Pagination({ limit, skip, total, onChange }: IPaginationProps) {
             {n + 1}
           </li>
         ))}
-        <li
-          onClick={() => {
-            if (skip < totalPage - 1) onChange(skip + 1);
-          }}
-        >
-          {icons.chevronBack(
-            `${styles.rotate} ${styles.iconSvg}`,
-            styles.iconPath
-          )}
-        </li>
+        {skip < totalPage - 1 && (
+          <li
+            onClick={() => {
+              if (skip < totalPage - 1) onChange(skip + 1);
+            }}
+          >
+            {icons.chevronBack(
+              `${styles.rotate} ${styles.iconSvg}`,
+              styles.iconPath
+            )}
+          </li>
+        )}
       </ul>
     </div>
   );

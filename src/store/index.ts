@@ -15,18 +15,19 @@ import {
   REGISTER,
 } from "redux-persist";
 
-const persistConfig = {
-  key: "root",
-  storage: storage,
-  blacklist: ["CartSlice"],
-};
-
 export const rootReducers = combineReducers({
   [productsApi.reducerPath]: productsApi.reducer,
   cart: CartSlice.reducer,
 });
 
-const persistedReducer = persistReducer(persistConfig, rootReducers);
+const persistedReducer = persistReducer(
+  {
+    key: "root",
+    storage: storage,
+    blacklist: ["cart"],
+  },
+  rootReducers
+);
 
 export const store = configureStore({
   reducer: persistedReducer,

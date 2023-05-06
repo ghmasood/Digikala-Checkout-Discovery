@@ -32,7 +32,7 @@ function ProductItemCard({ cardData }: IProductItemCardProps) {
         <Link to={`/product/${cardData.id}`} className={styles.title}>
           {cardData.title}
         </Link>
-        <span className={styles.brand}>{cardData.brand}</span>
+        <p className={styles.brand}>{cardData.brand}</p>
         <div className={styles.action}>
           <div
             style={{
