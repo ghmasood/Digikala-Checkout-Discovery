@@ -233,4 +233,49 @@ export const icons = {
       </svg>
     );
   },
+  minus: () => {
+    return (
+      <svg
+        width="35"
+        height="34"
+        viewBox="0 0 35 34"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M12.2864 17H22.7864"
+          stroke="#E5252C"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
+    );
+  },
+  plus: () => {
+    return (
+      <svg
+        width="35"
+        height="34"
+        viewBox="0 0 35 34"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M17.5364 11.75V22.25"
+          stroke="#02D693"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+        <path
+          d="M12.2864 17H22.7864"
+          stroke="#02D693"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
+    );
+  },
 };

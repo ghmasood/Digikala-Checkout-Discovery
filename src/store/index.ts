@@ -24,7 +24,7 @@ const persistedReducer = persistReducer(
   {
     key: "root",
     storage: storage,
-    blacklist: ["cart"],
+    whitelist: ["cart"],
   },
   rootReducers
 );

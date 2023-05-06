@@ -1,7 +1,6 @@
 @import "assets/styles/helpers/variabels";
 
 .contentFrame {
-  margin-left: 3.75rem;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -68,7 +67,7 @@
   border-radius: 1rem;
   width: 5rem;
   height: 6rem;
-  object-fit: fill;
+  object-fit: contain;
 }
 
 .mainImage {
@@ -104,35 +103,6 @@
   color: $placeholder;
 }
 
-.special {
-  display: flex;
-  align-items: center;
-  padding: 1rem 0.5rem;
-  gap: 0.5rem;
-
-  & :nth-child(2) {
-    color: $accent;
-    font-size: 1.25rem;
-    font-weight: 400;
-  }
-}
-
-.stars {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 0.3rem;
-  padding: 0 1rem 0 0;
-}
-
-.starStroke {
-  stroke: $accent;
-}
-
-.starFill {
-  fill: $accent;
-}
-
 .price {
   display: flex;
   gap: 1rem;
@@ -161,12 +131,12 @@
 
 .cta {
   display: flex;
-  width: 100%;
   flex-direction: column;
   justify-content: center;
   align-items: flex-end;
   padding: 0.5rem;
   gap: 0.625rem;
+  margin-left: auto;
 }
 
 .btn {

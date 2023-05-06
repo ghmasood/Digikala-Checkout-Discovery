@@ -10,6 +10,7 @@ import styles from "./detailPage.module.scss";
 import { useAppDispatch } from "../../store/hook";
 import { addToCart } from "../../store/cart";
 import { icons } from "components/icons";
+import Rating from "components/rating";
 
 interface IDetailPageProps {
   customClass?: string;
@@ -57,23 +58,7 @@ function DetailPage({ customClass = "" }: IDetailPageProps) {
             <span className={styles.title}>{data?.title}</span>
             <span className={styles.category}>{data?.category}</span>
           </div>
-          <div className={styles.special}>
-            <div className={styles.stars}>
-              {[...new Array(fullStar)].map((item, index) =>
-                icons.starFull("", `${styles.starStroke} ${styles.starFill}`)
-              )}
-              {[...new Array(halfStar)].map((item, index) =>
-                icons.starHalf(
-                  `${styles.starStroke}`,
-                  `${styles.starFill} ${styles.starStroke}`
-                )
-              )}
-              {[...new Array(emptyStar)].map((item, index) =>
-                icons.starEmpty("", `${styles.starStroke} `)
-              )}
-            </div>
-            <span>{finalRate}/5</span>
-          </div>
+          <Rating rate={data?.rating ?? 0} />
           <div className={styles.price}>
             <span>${data?.price}</span>
             <span>

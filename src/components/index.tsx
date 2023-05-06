@@ -10,11 +10,13 @@ function ShopApp() {
   return (
     <div className={styles.container}>
       <NavBar />
-      <Routes>
-        <Route path="/" element={<ProductList />} />
-        <Route path="/product/:id" element={<DetailPage />} />
-        <Route path="/cart" element={<CartPage />} />
-      </Routes>
+      <div className={styles.pageMargin}>
+        <Routes>
+          <Route path="/" element={<ProductList />} />
+          <Route path="/product/:id" element={<DetailPage />} />
+          <Route path="/cart" element={<CartPage />} />
+        </Routes>
+      </div>
     </div>
   );
 }

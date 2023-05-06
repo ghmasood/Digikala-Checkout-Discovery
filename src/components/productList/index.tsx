@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 
-import ProductItemCard from "../productItemCard";
-
 import styles from "./list.module.scss";
 
 import { useGetAllProductsQuery } from "../../store";
 import { FetchBaseQueryError } from "@reduxjs/toolkit/dist/query/fetchBaseQuery";
 import Pagination from "../pagination";
+import ProductItemCard from "./components/productItemCard";
 
 interface IProductListProps {
   customClass?: string;

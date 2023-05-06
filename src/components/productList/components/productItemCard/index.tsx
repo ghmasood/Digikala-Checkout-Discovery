@@ -23,9 +23,12 @@ function ProductItemCard({ cardData }: IProductItemCardProps) {
         <img
           alt={cardData.title}
           src={cardData.thumbnail}
-          height="160px"
-          width="200px"
-          style={{ borderRadius: "0.5rem", objectFit: "contain" }}
+          width="100%"
+          style={{
+            borderRadius: "0.5rem",
+            objectFit: "contain",
+            aspectRatio: "6/7",
+          }}
         />
       </Link>
       <div className={styles.content}>
@@ -38,7 +41,7 @@ function ProductItemCard({ cardData }: IProductItemCardProps) {
             style={{
               display: "flex",
               gap: "0.25rem",
-              alignItems: "baseline",
+              alignItems: "center",
             }}
           >
             <span className={styles.price}>${FinalPrice}</span>

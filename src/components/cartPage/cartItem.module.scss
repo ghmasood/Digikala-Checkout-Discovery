@@ -1,0 +1,17 @@
+@import "assets/styles/helpers/variabels";
+
+.root {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 3rem;
+  padding-left: 0;
+  gap: 1.5rem;
+}
+
+.title {
+  color: $dark;
+  font-size: 3rem;
+  font-weight: 400 !important;
+  margin-bottom: 1.5rem;
+}

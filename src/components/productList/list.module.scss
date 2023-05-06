@@ -1,12 +1,11 @@
 .contentFrame {
-  padding: 1.5rem;
-  margin-left: 3.75rem;
   display: flex;
   flex-direction: column;
 }
 
 .procuctList {
+  padding: 1rem;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  gap: 2rem;
 }
