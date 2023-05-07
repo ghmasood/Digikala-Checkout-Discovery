@@ -7,6 +7,7 @@ import { useAppDispatch } from "store/hook";
 import { productType } from "types";
 import { icons } from "components/icons";
 import { addToCart } from "store/cart";
+import BasicImg from "components/BasicImg";
 
 interface IProductItemCardProps {
   cardData: productType;
@@ -20,13 +21,13 @@ function ProductItemCard({ cardData }: IProductItemCardProps) {
   return (
     <div className={styles.productCard}>
       <Link to={`/product/${cardData.id}`} className={styles.productImage}>
-        <img
-          alt={cardData.title}
+        <BasicImg
+          // alt={cardData.title}
           src={cardData.thumbnail}
           width="100%"
           style={{
             borderRadius: "0.5rem",
-            objectFit: "contain",
+            objectFit: "cover",
             aspectRatio: "6/7",
           }}
         />

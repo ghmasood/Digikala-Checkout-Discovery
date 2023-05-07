@@ -9,8 +9,9 @@ function NavBar() {
   return (
     <div className={styles.navroot}>
       <div className={styles.section}>
-        <span className={styles.item}>{icons.logo()}</span>
-
+        <span className={styles.item}>
+          <img src="/images/logo.png" />
+        </span>
         <span className={styles.item}>{icons.menu()}</span>
         <Link to={"/"} className={styles.item}>
           {loc === "" ? icons.homeActive() : icons.home()}

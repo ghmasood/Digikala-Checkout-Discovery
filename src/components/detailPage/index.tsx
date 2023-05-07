@@ -11,6 +11,7 @@ import { useAppDispatch } from "../../store/hook";
 import { addToCart } from "../../store/cart";
 import { icons } from "components/icons";
 import Rating from "components/rating";
+import BasicImg from "components/BasicImg";
 
 interface IDetailPageProps {
   customClass?: string;
@@ -41,17 +42,26 @@ function DetailPage({ customClass = "" }: IDetailPageProps) {
       <div className={styles.topArea}>
         <div className={styles.imageArea}>
           <div className={styles.gallery}>
-            {data?.images.map((pic, index) => (
-              <div>
-                <img
-                  src={pic}
-                  className={styles.galleryContiner}
-                  onClick={() => setPicNO(index)}
-                />
-              </div>
-            ))}
+            {data
+              ? data?.images.map((pic, index) => (
+                  <div>
+                    <BasicImg
+                      src={pic}
+                      className={styles.galleryContiner}
+                      onClick={() => setPicNO(index)}
+                    />
+                  </div>
+                ))
+              : [...new Array(4)].map((item, index) => (
+                  <div>
+                    <BasicImg src={"pic"} className={styles.galleryContiner} />
+                  </div>
+                ))}
           </div>
-          <img src={data?.images[picNO]} className={styles.mainImage} />
+          <BasicImg
+            src={data?.images[picNO] ?? ""}
+            className={styles.mainImage}
+          />
         </div>
         <div className={styles.textArea}>
           <div className={styles.header}>

@@ -5,6 +5,7 @@ import Rating from "components/rating";
 import { icons } from "components/icons";
 import { useAppDispatch } from "store/hook";
 import { addToCart, minusFromCart } from "store/cart";
+import BasicImg from "components/BasicImg";
 interface ItemInBag {
   product: IFilterdItem;
 }
@@ -13,7 +14,15 @@ function ItemInBag({ product }: ItemInBag) {
   return (
     <div className={styles.bagItem}>
       <div className={styles.imgArea}>
-        <img src={product?.thumbnail} />
+        <BasicImg
+          src={product?.thumbnail}
+          style={{
+            objectFit: "cover",
+            width: "100%",
+            aspectRatio: 1,
+            borderRadius: "1rem",
+          }}
+        />
       </div>
       <div className={styles.contentArea}>
         <div className={styles.title}>{product.title}</div>
