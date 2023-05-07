@@ -26,7 +26,7 @@ function Rating({ rate }: Irating) {
           icons.starEmpty("", `${styles.starStroke} `)
         )}
       </div>
-      <span>{finalRate}/5</span>
+      <span>{rate.toFixed(1)}/5</span>
     </div>
   );
 }

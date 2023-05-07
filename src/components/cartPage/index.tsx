@@ -14,7 +14,7 @@ function CartPage() {
   );
   return (
     <div className={styles.root}>
-      <span className={styles.title}>Check your Card Items</span>
+      <span className={styles.title}>Check your Cart Items</span>
       {cardItems.cartProducts.map((item) => (
         <ItemInBag key={item.id} product={item} />
       ))}

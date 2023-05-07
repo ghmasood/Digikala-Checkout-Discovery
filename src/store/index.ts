@@ -44,7 +44,4 @@ export type AppDispatch = typeof store.dispatch;
 
 setupListeners(store.dispatch);
 
-export {
-  useGetAllProductsQuery,
-  useGetSingleProductQuery,
-} from "./API/productApi";
+export * from "./API/productApi";

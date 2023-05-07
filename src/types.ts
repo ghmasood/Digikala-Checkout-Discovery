@@ -9,6 +9,11 @@ export interface productReqType {
   limit: number;
   skip: number;
 }
+
+export interface productSearchReqType extends productReqType {
+  search: string;
+}
+
 export interface productType {
   id: number;
   title: string;

@@ -1,19 +1,15 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/dist/query/react";
-import { productReqType, productsType, productType } from "../../types";
+import {
+  productReqType,
+  productSearchReqType,
+  productsType,
+  productType,
+} from "../../types";
 export const productsApi = createApi({
   reducerPath: "products",
   baseQuery: fetchBaseQuery({ baseUrl: "https://dummyjson.com" }),
   endpoints: (builder) => {
     return {
-      getAllProducts: builder.query<productsType, productReqType>({
-        query: ({ limit, skip }) => {
-          return {
-            url: "/products",
-            method: "GET",
-            params: { limit: limit, skip: skip },
-          };
-        },
-      }),
       getSingleProduct: builder.query<productType, number>({
         query: (arg) => {
           return {
@@ -22,8 +18,18 @@ export const productsApi = createApi({
           };
         },
       }),
+      getSearchProduct: builder.query<productsType, productSearchReqType>({
+        query: ({ limit, skip, search }) => {
+          return {
+            url: search === "" ? `/products` : "/products/search",
+            method: "GET",
+            params: { q: search, limit: limit, skip: skip },
+          };
+        },
+      }),
     };
   },
 });
 
-export const { useGetAllProductsQuery, useGetSingleProductQuery } = productsApi;
+export const { useGetSingleProductQuery, useGetSearchProductQuery } =
+  productsApi;
