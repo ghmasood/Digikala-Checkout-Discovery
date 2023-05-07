@@ -6,6 +6,7 @@ import { useGetAllProductsQuery } from "../../store";
 import { FetchBaseQueryError } from "@reduxjs/toolkit/dist/query/fetchBaseQuery";
 import Pagination from "../pagination";
 import ProductItemCard from "./components/productItemCard";
+import SearchBar from "components/searchBar";
 
 interface IProductListProps {
   customClass?: string;
@@ -14,13 +15,16 @@ interface IProductListProps {
 function ProductList({ customClass = "" }: IProductListProps) {
   const itemPerPage = 10;
   const [page, setPage] = useState(0);
+  const [searchParam, setSearchParam] = useState("");
   const { isFetching, isLoading, error, data } = useGetAllProductsQuery({
     limit: itemPerPage,
     skip: page * itemPerPage,
   });
   const err = error as FetchBaseQueryError;
+  console.log(searchParam);
   return (
     <div className={styles.contentFrame}>
+      <SearchBar search={searchParam} setSearch={setSearchParam} />
       <div className={styles.procuctList}>
         {isLoading || isFetching ? (
           <div>loading...</div>
