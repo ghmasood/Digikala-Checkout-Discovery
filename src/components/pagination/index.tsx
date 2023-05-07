@@ -3,18 +3,28 @@ import React from "react";
 import styles from "./pagination.module.scss";
 import { icons } from "components/icons";
 interface IPaginationProps {
+  loading?: boolean;
   total: number;
   limit: number;
   skip: number;
   onChange: (p: number) => void;
 }
-function Pagination({ limit, skip, total, onChange }: IPaginationProps) {
+function Pagination({
+  limit,
+  skip,
+  total,
+  onChange,
+  loading,
+}: IPaginationProps) {
   const pageNumbers: number[] = [];
   const totalPage = Math.ceil(total / limit);
   for (let i = 0; i < totalPage; i++) pageNumbers.push(i);
   return (
     <div className={styles.pagination}>
-      <ul className={styles.ulstyle}>
+      <ul
+        className={`${styles.ulstyle} ${loading ? "skeleton" : ""} `}
+        style={{ maxWidth: loading ? "40%" : "" }}
+      >
         {skip > 0 && (
           <li
             onClick={() => {

@@ -31,7 +31,7 @@ function BasicImg({ src, className, style, width, alt, ...rest }: IBasicImg) {
           width: "66%",
           aspectRatio: 1,
           transition: "all 0.3s ease",
-          opacity: `${loaded ? 0 : 100}%`,
+          opacity: `${loaded ? 0 : 30}%`,
           filter: "grayscale(100%)",
         }}
         className={className}

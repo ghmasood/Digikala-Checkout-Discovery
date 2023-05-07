@@ -8,6 +8,7 @@ import ProductItemCard from "./components/productItemCard";
 import SearchBar from "components/productList/components/searchBar";
 import { productsType } from "types";
 import { useGetSearchProductQuery } from "store";
+import ProductItemCardLoading from "./components/productItemCard/skeleton";
 
 interface IProductListProps {
   customClass?: string;
@@ -35,7 +36,7 @@ function ProductList({ customClass = "" }: IProductListProps) {
       />
       <div className={styles.procuctList}>
         {isLoading || isFetching ? (
-          <div>loading...</div>
+          [...new Array(10)].map((item) => <ProductItemCardLoading />)
         ) : err ? (
           <div>{err.status}</div>
         ) : (
@@ -44,14 +45,13 @@ function ProductList({ customClass = "" }: IProductListProps) {
           ))
         )}
       </div>
-      {!isLoading && !isFetching && (
-        <Pagination
-          total={data?.total ?? 0}
-          limit={itemPerPage}
-          skip={page}
-          onChange={(p) => setPage(p)}
-        />
-      )}
+      <Pagination
+        loading={isLoading || isFetching}
+        total={data?.total ?? 0}
+        limit={itemPerPage}
+        skip={page}
+        onChange={(p) => setPage(p)}
+      />
     </div>
   );
 }

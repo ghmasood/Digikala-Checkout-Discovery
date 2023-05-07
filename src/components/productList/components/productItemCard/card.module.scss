@@ -34,7 +34,6 @@
   font-size: 1.25rem;
   line-height: 1.5rem;
   display: block;
-
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -46,6 +45,9 @@
   font-size: 1rem;
   line-height: 1.25rem;
   margin: 0.25rem 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .action {

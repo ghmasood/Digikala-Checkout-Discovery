@@ -1,7 +1,7 @@
 @import "assets/styles/helpers/variabels";
 
 .pagination {
-  margin-top: 1.5rem;
+  margin: 1.5rem 0;
 }
 .ulstyle {
   display: flex;
@@ -9,6 +9,7 @@
   list-style-type: none;
   align-items: center;
   justify-content: center;
+  margin: 0 auto;
 }
 
 .listyle {
