@@ -4,7 +4,6 @@ import styles from "./card.module.scss";
 
 import { Link } from "react-router-dom";
 
-import { icons } from "components/icons";
 import BasicImg from "components/BasicImg";
 
 function ProductItemCardLoading() {

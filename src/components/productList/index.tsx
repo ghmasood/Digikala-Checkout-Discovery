@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 import styles from "./list.module.scss";
 
@@ -6,7 +6,6 @@ import { FetchBaseQueryError } from "@reduxjs/toolkit/dist/query/fetchBaseQuery"
 import Pagination from "../pagination";
 import ProductItemCard from "./components/productItemCard";
 import SearchBar from "components/productList/components/searchBar";
-import { productsType } from "types";
 import { useGetSearchProductQuery } from "store";
 import ProductItemCardLoading from "./components/productItemCard/skeleton";
 

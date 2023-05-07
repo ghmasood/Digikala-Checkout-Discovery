@@ -1,8 +1,7 @@
 import React from "react";
-import { useAppDispatch, useAppSelector } from "../../store/hook";
-import { minusFromCart } from "../../store/cart";
+import { useAppSelector } from "../../store/hook";
 import ItemInBag from "./components/itemInBag";
-import styles from "./cartItem.module.scss";
+import styles from "./cartPage.module.scss";
 
 function CartPage() {
   const cardItems = useAppSelector((store) => store.cart);

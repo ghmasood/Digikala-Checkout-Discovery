@@ -25,6 +25,7 @@ function BasicImg({ src, className, style, width, alt, ...rest }: IBasicImg) {
       }}
     >
       <img
+        alt="Loading"
         src="/images/logo.png"
         style={{
           ...style,

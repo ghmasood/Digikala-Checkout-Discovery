@@ -6,10 +6,10 @@ import { icons } from "components/icons";
 import { useAppDispatch } from "store/hook";
 import { addToCart, minusFromCart } from "store/cart";
 import BasicImg from "components/BasicImg";
-interface ItemInBag {
+interface IItemInBag {
   product: IFilterdItem;
 }
-function ItemInBag({ product }: ItemInBag) {
+function ItemInBag({ product }: IItemInBag) {
   const reduxDispatch = useAppDispatch();
   return (
     <div className={styles.bagItem}>
