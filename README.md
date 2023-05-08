@@ -1,46 +1,38 @@
-# Getting Started with Create React App
+# Digikala simple flow
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was created according to Digikala Company interview task.
+<br/>
+I used Redux for global state managment and RTK query for api's. According to rules of task, i don't use any UI material, CSS library or any other package. And i persist data of cart with ReduxPrsist. 
+<br/>
+You can improve it by adding style and other things! and for use this project you can use `npm start` script in terminal.
 
-## Available Scripts
+### Features:
 
-In the project directory, you can run:
+- Load list of products in home page with paginataion
+- Load detail of product in product page 
+- Add product to cart from home page & detail page
+- Show products in cart with quantity 
+- add more and minus product from cart in cart page
+- Search bar in home page for searching product
 
-### `npm start`
+### TODO:
+- Show total price cart in cartPage and route to checkout
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Used packages:
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- React
+- TypeScript
+- Redux Toolkit Query
+- SCSS
 
-### `npm test`
+### Additonl thing:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **Design:** I'm using this [project](https://www.figma.com/community/file/1070518510850855777) from Figma Community
+- **Server:** I'm using [Dummy Json](http://Dummyjson.com) for fetching data
 
-### `npm run build`
+### Snapshots:
+<img width="1680" alt="Screenshot 2023-05-08 at 13 14 18" src="https://user-images.githubusercontent.com/33165677/236792466-b8936627-ff20-4580-978b-ecec1c1f7f9f.png">
+<img width="1680" alt="Screenshot 2023-05-08 at 13 14 38" src="https://user-images.githubusercontent.com/33165677/236792505-548d1842-d2d4-44d7-99dd-7577a7c1a5a5.png">
+<img width="1680" alt="Screenshot 2023-05-08 at 13 14 49" src="https://user-images.githubusercontent.com/33165677/236792524-39ec6fff-b67c-4559-a911-8b4ee2026a66.png">
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
