@@ -14,6 +14,7 @@ You can improve it by adding style and other things! and for use this project yo
 - Show products in cart with quantity 
 - add more and minus product from cart in cart page
 - Search bar in home page for searching product
+- Skeleton loading and optimaizing <img/> for show mock picture until fully loaded
 
 ### TODO:
 - Show total price cart in cartPage and route to checkout
